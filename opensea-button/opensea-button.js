@@ -21,7 +21,7 @@ if (path_name.substr(0, 6) == '/token') {
 if (page.length > 0) {
     address = path_name.substr(path_name.search('0x'), 42);
     os_url = 'https://opensea.io/' + (page == 'address' ? '' : 'assets?search[query]=') + address;
-    os_logo = 'https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.svg';
+    os_logo = chrome.runtime.getURL('opensea-logo.svg');
 
     el_1 = document.createElement('span');
     el_2 = document.createElement('a');

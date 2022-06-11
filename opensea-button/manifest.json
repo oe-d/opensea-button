@@ -21,5 +21,16 @@
                 "opensea-button.js"
             ]
         }
+    ],
+    "web_accessible_resources": [
+        {
+            "matches": [
+                "*://etherscan.io/*",
+                "*://polygonscan.com/*"
+            ],
+            "resources": [
+                "opensea-logo.svg"
+            ]
+        }
     ]
 }
