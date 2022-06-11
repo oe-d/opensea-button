@@ -1,10 +1,9 @@
 // OpenSea Button 1.0.0
 // https://github.com/oe-d/opensea-button
 
-path_name = window.location.pathname;
 page = '';
 
-if (path_name.substr(0, 6) == '/token') {
+if (window.location.pathname.substr(0, 6) == '/token') {
     page = 'token';
 } else {
     icon = document.getElementById('icon');
@@ -18,9 +17,25 @@ if (path_name.substr(0, 6) == '/token') {
     }
 }
 
+function get_os_url() {
+    href = window.location.href;
+    os_url = 'https://';
+
+    if (href.search('rinkeby') > 0) {
+        os_url += 'testnets.';
+    }
+
+    os_url += 'opensea.io/';
+
+    if (page != 'address') {
+        os_url += 'assets?search[query]=';
+    }
+
+    return os_url + href.substr(href.search('0x'), 42);
+}
+
 if (page.length > 0) {
-    address = path_name.substr(path_name.search('0x'), 42);
-    os_url = 'https://opensea.io/' + (page == 'address' ? '' : 'assets?search[query]=') + address;
+    os_url = get_os_url();
     os_logo = chrome.runtime.getURL('opensea-logo.svg');
 
     el_1 = document.createElement('span');
