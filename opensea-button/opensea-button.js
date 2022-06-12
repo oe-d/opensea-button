@@ -1,21 +1,8 @@
-// OpenSea Button 1.1.0
+// OpenSea Button 1.1.1
 // https://github.com/oe-d/opensea-button
 
-page = '';
-
-if (window.location.pathname.substr(0, 6) == '/token') {
-    page = 'token';
-} else {
-    icon = document.getElementById('icon');
-
-    if (icon) {
-        if (icon.nextSibling.textContent.includes('Contract')) {
-            page = 'contract';
-        } else if (icon.nextSibling.textContent.includes('Address')) {
-            page = 'address';
-        }
-    }
-}
+var page = '';
+var tt_1;
 
 function get_os_url() {
     href = window.location.href;
@@ -32,6 +19,14 @@ function get_os_url() {
     }
 
     return os_url + href.substr(href.search('0x'), 42);
+}
+
+function set_tt_1_style(tt_1_rect) {
+    btn_2_rect = btn_2.getBoundingClientRect();
+    btn_2_center = btn_2_rect.left + (btn_2_rect.right - btn_2_rect.left) / 2;
+    tt_1_x = Math.round(btn_2_center - ((tt_1_rect.right - tt_1_rect.left) / 2));
+    tt_1_y = Math.floor(btn_2_rect.top - (tt_1_rect.bottom - tt_1_rect.top));
+    tt_1.setAttribute('style', 'position: absolute; transform: translate3d(' + tt_1_x + 'px, ' + tt_1_y + 'px, 0px); top: 0px; left: 0px; will-change: transform;');
 }
 
 function create_elements(btn_container) {
@@ -65,23 +60,32 @@ function create_elements(btn_container) {
     btn_3.setAttribute('class', 'img-fluid rounded-circle');
     btn_3.setAttribute('src', chrome.runtime.getURL('opensea-logo.svg'));
 
-    btn_2_rect = btn_2.getBoundingClientRect();
-    btn_2_center = btn_2_rect.left + (btn_2_rect.right - btn_2_rect.left) / 2;
-
     tt_3.setAttribute('class', 'tooltip-inner');
     tt_3.textContent = 'View on OpenSea';
 
     tt_1.setAttribute('class', 'tooltip bs-tooltip-top');
     tt_1_rect = tt_1.getBoundingClientRect();
-    tt_1_x = Math.round(btn_2_center - ((tt_1_rect.right - tt_1_rect.left) / 2));
-    tt_1_y = Math.round(btn_2_rect.top - (tt_1_rect.bottom - tt_1_rect.top));
-    tt_1.setAttribute('style', 'position: absolute; transform: translate3d(' + tt_1_x + 'px, ' + tt_1_y + 'px, 0px); top: 0px; left: 0px; will-change: transform;');
+    set_tt_1_style(tt_1_rect);
     tt_1.setAttribute('x-placement', 'top');
 
     tt_2.setAttribute('class', 'arrow');
     tt_2_rect = tt_2.getBoundingClientRect();
     tt_2_x = (tt_1_rect.right - tt_1_rect.left) / 2 - ((tt_2_rect.right - tt_2_rect.left) / 2);
     tt_2.setAttribute('style', 'left: ' + tt_2_x + 'px;');
+}
+
+if (window.location.pathname.substr(0, 6) == '/token') {
+    page = 'token';
+} else {
+    icon = document.getElementById('icon');
+
+    if (icon) {
+        if (icon.nextSibling.textContent.includes('Contract')) {
+            page = 'contract';
+        } else if (icon.nextSibling.textContent.includes('Address')) {
+            page = 'address';
+        }
+    }
 }
 
 if (page.length > 0) {
@@ -105,4 +109,5 @@ if (page.length > 0) {
     }
 
     create_elements(container);
+    window.addEventListener('resize', function () { set_tt_1_style(tt_1.getBoundingClientRect()) });
 }
