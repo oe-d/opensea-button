@@ -1,4 +1,4 @@
-// OpenSea Button 1.1.2
+// OpenSea Button 1.1.3
 // https://github.com/oe-d/opensea-button
 
 var page;
@@ -30,12 +30,12 @@ function set_tt_1_attributes() {
     const tt_1_half_width = (tt_1_rect.right - tt_1_rect.left) / 2;
     const tt_1_height = tt_1_rect.bottom - tt_1_rect.top;
     const tt_1_x = Math.round(btn_2_center - tt_1_half_width);
-    let tt_1_y = Math.round(btn_2_rect.top - tt_1_height + document.documentElement.scrollTop);
+    let tt_1_y = Math.floor(btn_2_rect.top - tt_1_height + document.documentElement.scrollTop);
 
-    if (tt_1_y - document.documentElement.scrollTop < 4) {
+    if (tt_1_y - document.documentElement.scrollTop < 5) {
         tt_1_class = 'tooltip fade bs-tooltip-bottom';
         tt_1_x_placement = 'bottom';
-        tt_1_y = Math.round(btn_2_rect.bottom + document.documentElement.scrollTop);
+        tt_1_y = Math.floor(btn_2_rect.bottom + document.documentElement.scrollTop);
     }
 
     e.tt_1.setAttribute('class', tt_1_class);
