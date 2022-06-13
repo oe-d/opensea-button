@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "OpenSea Button",
     "description": "Adds a button on Etherscan and Polygonscan linking to OpenSea",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "icons": {
         "96": "icon96.png",
         "128": "icon128.png"
