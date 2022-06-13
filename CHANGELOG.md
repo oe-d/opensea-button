@@ -1,3 +1,7 @@
+## 1.1.3 - 2022-06-13 - [`c4ef544`](https://github.com/oe-d/opensea-button/tree/c4ef544fb77c9e25cf19ecf1b158394e803398d6)
+
+Improve tooltip y positioning
+
 ## 1.1.2 - 2022-06-13 - [`b3b0880`](https://github.com/oe-d/opensea-button/tree/b3b08803de6e6ac9e98a4a7bf8acf800b4960064)
 
 Fix tooltip y positioning
