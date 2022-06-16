@@ -1,4 +1,4 @@
-// OpenSea Button 1.1.3
+// OpenSea Button 1.1.4
 // https://github.com/oe-d/opensea-button
 
 var page;
@@ -106,11 +106,6 @@ if (window.location.pathname.substr(0, 6) == '/token') {
 if (page.length > 0) {
     const nodes = document.getElementsByClassName('mb-3 mb-lg-0')[0].firstChild.nextSibling.childNodes;
     e.container = nodes[page == 'token' ? 3 : 5];
-    const bc_node = e.container.getElementsByClassName('mr-1 ml-2');
-
-    if (bc_node[0]) {
-        bc_node[0].setAttribute('class', 'ml-1');
-    }
 
     if (page != 'token') {
         const a_list = e.container.getElementsByTagName('a');
@@ -118,7 +113,9 @@ if (page.length > 0) {
         for (let i = 0; i < a_list.length; i++) {
             if (a_list[i].href.includes('blockscan.com/address')) {
                 a_list[i].setAttribute('class', 'ml-1 btn btn-sm btn-icon btn-soft-secondary rounded-circle');
-                a_list[i].parentNode.setAttribute('class', 'mr-1');
+                a_list[i].parentNode.removeAttribute('class');
+            } else if (a_list[i].href.includes('chat.blockscan.com')) {
+                a_list[i].parentNode.setAttribute('class', 'ml-1');
             }
         }
     }
