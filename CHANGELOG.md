@@ -1,3 +1,7 @@
+## 1.1.4 - 2022-06-16 - [`4d87372`](https://github.com/oe-d/opensea-button/tree/4d87372a1efdbb5ad57c6e5985e6eff19cd3e70d)
+
+Make button spacing consistent
+
 ## 1.1.3 - 2022-06-13 - [`c4ef544`](https://github.com/oe-d/opensea-button/tree/c4ef544fb77c9e25cf19ecf1b158394e803398d6)
 
 Improve tooltip y positioning
