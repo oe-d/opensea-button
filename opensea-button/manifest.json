@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "OpenSea Button",
     "description": "Adds a button on Etherscan and Polygonscan linking to OpenSea",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "icons": {
         "96": "icon96.png",
         "128": "icon128.png"
@@ -10,10 +10,14 @@
     "content_scripts": [
         {
             "matches": [
+                "*://goerli.etherscan.io/address/*",
+                "*://goerli.etherscan.io/token/*",
                 "*://rinkeby.etherscan.io/address/*",
                 "*://rinkeby.etherscan.io/token/*",
                 "*://etherscan.io/address/*",
                 "*://etherscan.io/token/*",
+                "*://mumbai.polygonscan.com/address/*",
+                "*://mumbai.polygonscan.com/token/*",
                 "*://polygonscan.com/address/*",
                 "*://polygonscan.com/token/*"
             ],
@@ -25,8 +29,10 @@
     "web_accessible_resources": [
         {
             "matches": [
+                "*://goerli.etherscan.io/*",
                 "*://rinkeby.etherscan.io/*",
                 "*://etherscan.io/*",
+                "*://mumbai.polygonscan.com/*",
                 "*://polygonscan.com/*"
             ],
             "resources": [

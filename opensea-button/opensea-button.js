@@ -1,4 +1,4 @@
-// OpenSea Button 1.1.4
+// OpenSea Button 1.1.5
 // https://github.com/oe-d/opensea-button
 
 var page;
@@ -8,7 +8,7 @@ function get_os_url() {
     const href = window.location.href;
     let os_url = 'https://';
 
-    if (href.search('rinkeby') > 0) {
+    if (href.match(/goerli|rinkeby|mumbai/)) {
         os_url += 'testnets.';
     }
 
