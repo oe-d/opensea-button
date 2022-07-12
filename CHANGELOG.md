@@ -1,3 +1,7 @@
+## 1.1.5 - 2022-07-12 - [`4b5debc`](https://github.com/oe-d/opensea-button/tree/4b5debc209a1eda685d8b0d45695183cded3181c)
+
+Add goerli and mumbai support
+
 ## 1.1.4 - 2022-06-16 - [`4d87372`](https://github.com/oe-d/opensea-button/tree/4d87372a1efdbb5ad57c6e5985e6eff19cd3e70d)
 
 Make button spacing consistent
